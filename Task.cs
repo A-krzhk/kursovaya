@@ -11,6 +11,7 @@ namespace kurs
 {
     public class Task
     {
+        static List<Task> tasks; // 
         // ID идентификатор - я предполагаю, что он понадобится для выстраивания зависимостей
         int id;
 
@@ -22,7 +23,7 @@ namespace kurs
         }
 
         //Время выполнения задачи 
-        int time;
+        int time = 0;
         public int Time
         {
             get => time; 
@@ -41,22 +42,73 @@ namespace kurs
        
         
         // От чего задача зависит 
-        List<int> dependenciesID; 
-        public void AddDepends(List<int> dependIDs)
+        List<Task> dependenciesID; 
+        //найти сущетвует ли задача с таким названием 
+        // если нет вызвать new Task()
+        public void AddDepends(List<Task> dependIDs)
         {
-            for (int i = 0; i < 0; i++)
+            for (int i = 0; i < dependIDs.Count; i++)
             {
-                dependenciesID.Add(dependIDs[i]);
+                if (!tasks.Contains(dependIDs[i]))
+                {
+                    // Надо сказать пользователю создать новый элемент 
+                    // НАДО ИСПРАВИТЬ CW
+                    Console.WriteLine("Сперва создайте эл");
+                    
+
+                    
+                    Task newTask = new Task();
+                }
+                else
+                {
+                    dependenciesID.Add(dependIDs[i]);
+                }
+            }
+            
+        }
+
+        public void Init(Task task)
+        {
+            Console.WriteLine("Введите имя");
+            string name = Console.ReadLine();
+            Console.WriteLine("Введите время");
+            int time = Int32.Parse(Console.ReadLine());
+
+
+            while (true)
+            {
+                string choice = Console.ReadLine();
+                switch (choice) {
+                    case "1":
+                        Console.WriteLine("Введите номер задачи, которую хотите добавить в зависимости");
+                        Print();
+                        int pos = Int32.Parse(Console.ReadLine());
+                        dependenciesID.Add(tasks[pos-1]);
+                        break;
+                    case "2":
+                        Task Added = new Task();
+                        Init(Added);
+                        break;
+                    case "3":
+                        return;
+
+                }
+            } 
+        }
+
+        public void Print()
+        {
+            for (int i = 0; i < tasks.Count; i++)
+            {
+                Console.WriteLine($"{i+1} {tasks[i].Name}");
             }
         }
 
-        // Конструкторы:
-        public Task (string name, int time, List<int> depends)
+        // Конструктор:
+        public Task ()
         {
             id = (new Id()).GenerateID();
-            Name = name;
-            Time = time;
-            AddDepends(depends);
+            tasks.Add(this);
         }
     }
 }
