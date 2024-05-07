@@ -1,0 +1,15 @@
+C:\Users\korya\source\repos\kurs\kurs\bin\Debug\net8.0\kurs.exe
+C:\Users\korya\source\repos\kurs\kurs\bin\Debug\net8.0\kurs.deps.json
+C:\Users\korya\source\repos\kurs\kurs\bin\Debug\net8.0\kurs.runtimeconfig.json
+C:\Users\korya\source\repos\kurs\kurs\bin\Debug\net8.0\kurs.dll
+C:\Users\korya\source\repos\kurs\kurs\bin\Debug\net8.0\kurs.pdb
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.AssemblyInfoInputs.cache
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.AssemblyInfo.cs
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.csproj.CoreCompileInputs.cache
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.sourcelink.json
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.dll
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\refint\kurs.dll
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.pdb
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\kurs.genruntimeconfig.cache
+C:\Users\korya\source\repos\kurs\kurs\obj\Debug\net8.0\ref\kurs.dll

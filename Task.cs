@@ -11,7 +11,7 @@ namespace kurs
 {
     public class Task
     {
-        static List<Task> tasks; // 
+        public static List<Task> tasks = new List<Task>(); // 
         // ID идентификатор - я предполагаю, что он понадобится для выстраивания зависимостей
         int id;
 
@@ -42,7 +42,7 @@ namespace kurs
        
         
         // От чего задача зависит 
-        List<Task> dependenciesID; 
+        public List<Task> dependenciesID; 
         //найти сущетвует ли задача с таким названием 
         // если нет вызвать new Task()
         public void AddDepends(List<Task> dependIDs)
@@ -54,8 +54,6 @@ namespace kurs
                     // Надо сказать пользователю создать новый элемент 
                     // НАДО ИСПРАВИТЬ CW
                     Console.WriteLine("Сперва создайте эл");
-                    
-
                     
                     Task newTask = new Task();
                 }
@@ -74,41 +72,44 @@ namespace kurs
             Console.WriteLine("Введите время");
             int time = Int32.Parse(Console.ReadLine());
 
-
             while (true)
             {
-                string choice = Console.ReadLine();
+                Console.WriteLine("1 - Ввести номер задачи, которую хоти добавить в зависимость \n 2- добавить новую задачу \n 3 - выход");
+
+                int choice = Convert.ToInt32(Console.ReadLine()); // зацикленность меню
+
                 switch (choice) {
-                    case "1":
+                    case 1:
                         Console.WriteLine("Введите номер задачи, которую хотите добавить в зависимости");
                         Print();
                         int pos = Int32.Parse(Console.ReadLine());
-                        dependenciesID.Add(tasks[pos-1]);
+                        dependenciesID.Add(tasks[pos - 1]);
                         break;
-                    case "2":
+                    case 2:
                         Task Added = new Task();
                         Init(Added);
+                        tasks.Add(Added);
+                        
                         break;
-                    case "3":
+                    case 3:
                         return;
 
                 }
-            } 
+            }
         }
 
         public void Print()
         {
             for (int i = 0; i < tasks.Count; i++)
             {
-                Console.WriteLine($"{i+1} {tasks[i].Name}");
+                Console.WriteLine($"{i+1} uuuu {tasks[i].Name}");
             }
         }
 
         // Конструктор:
         public Task ()
         {
-            id = (new Id()).GenerateID();
-            tasks.Add(this);
+            id = 100;
         }
     }
 }
