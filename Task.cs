@@ -11,6 +11,9 @@ namespace kurs
 {
     public class Task
     {
+        // ID идентификатор - я предполагаю, что он понадобится для выстраивания зависимостей
+        int id;
+
         //Название задачи 
         string name = "";
         public string Name
@@ -19,7 +22,7 @@ namespace kurs
         }
 
         //Время выполнения задачи 
-        int time = 0;
+        int time;
         public int Time
         {
             get => time; 
@@ -35,35 +38,25 @@ namespace kurs
 
         //Описание задачи 
         //пока что п+п, к логике слабо относится
-
-        // ID идентификатор - я предполагаю, что он понадобится для выстраивания зависимостей
-        // НАДО БУДЕТ ДОРАБОТАТЬ, ЧТОБЫ ГАРАНТИРОВАННО ДАВАЛ УНИКАЛЬНЫЕ ЗНАЧЕНИЯ
-        int number = 0;
-        public int Number
+       
+        
+        // От чего задача зависит 
+        List<int> dependenciesID; 
+        public void AddDepends(List<int> dependIDs)
         {
-            get => number;
-            set
+            for (int i = 0; i < 0; i++)
             {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-                number = value;
+                dependenciesID.Add(dependIDs[i]);
             }
         }
 
-        // От чего задача зависит 
-        int[] dependencies; // Тут надо бы подумать, стоит ли использовать List<> чтобы можно было добавлять через Add, или делать все вручную через []
-
-        // Тут должен быть метод для добавления зависимостей:
-        public void AddDepends(int dependId)
-        {
-
-        }
-
         // Конструкторы:
+        public Task (string name, int time, List<int> depends)
+        {
+            id = (new Id()).GenerateID();
+            Name = name;
+            Time = time;
+            AddDepends(depends);
+        }
     }
-
-
-
 }
